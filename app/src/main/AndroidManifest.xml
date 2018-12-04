@@ -153,6 +153,11 @@
             android:label="About"
             />
 
+        <activity
+            android:name=".smartlook.SmartlookSettingsActivity"
+            android:label="@string/smartlook_settings"
+            android:theme="@style/appCompatLight" />
+
         <service
             android:name = ".asynchronous.services.ExtractService"
             android:label = "Extracting"

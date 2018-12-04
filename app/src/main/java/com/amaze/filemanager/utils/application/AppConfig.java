@@ -32,17 +32,19 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatDelegate;
-import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.amaze.filemanager.database.UtilsHandler;
+import com.amaze.filemanager.smartlook.SmartlookPreferences;
 import com.amaze.filemanager.utils.LruBitmapCache;
 import com.amaze.filemanager.utils.ScreenUtils;
 import com.amaze.filemanager.utils.provider.UtilitiesProvider;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.smartlook.sdk.smartlook.Smartlook;
+import com.smartlook.sdk.smartlook.api.client.Server;
 
 import java.lang.ref.WeakReference;
 
@@ -85,6 +87,20 @@ public class AppConfig extends GlideApplication {
         // disabling file exposure method check for api n+
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
+
+        smartlookInit();
+    }
+
+    private void smartlookInit() {
+        int server = SmartlookPreferences.loadServerSelection(this);
+        String apiKey = SmartlookPreferences.loadApiKey(this, server);
+        boolean debugSelectors = SmartlookPreferences.loadDebugSelectors(this);
+
+        Log.i("SmartlookInit", "Initialize smartlook: server=[" + new Server(server).getBaseRawUrl() + "] apiKey=[" + apiKey + "] debugSelectors=[" + debugSelectors + "]");
+
+        Smartlook.changeServer(server);
+        Smartlook.debugSelectors(debugSelectors);
+        Smartlook.init(apiKey);
     }
 
     @Override

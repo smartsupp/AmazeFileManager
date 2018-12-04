@@ -514,4 +514,18 @@
   <string name="failed_smb_decrypt_path">Pokus o otevření spojení selhal</string>
   <string name="failed_cloud_new_connection">Nepodařilo se přidat cloudové připojení</string>
   <string name="failed_cloud_api_key">Autentizace cloudového pluginu se nezdařila</string>
+
+  <string name="smartlook_settings">Smartlook nastavení</string>
+  <string name="apply_changes_n_this_will_restart_the_app">Aplikuj a ulož změny\n(aplikace bude restartována)</string>
+  <string name="api_key">Api klíč</string>
+  <string name="reload_ndefault">Obnov\nvýchozí</string>
+  <string name="exit_dialog_message">Všechny neuložené změny budou ztraceny!</string>
+  <string name="smartlook_api_key">Smartlook api klíč:</string>
+  <string name="show_view_selector_on_click">Zobraz \"selector\" pohledu při kliknutí:</string>
+
+  <string-array name="server_array">
+    <item>Alfa (manager.alfa.smartlook.com)</item>
+    <item>Beta (manager.beta.smartlook.com)</item>
+    <item>Produkce (manager.smartlook.com)</item>
+  </string-array>
 </resources>

@@ -63,6 +63,7 @@ import com.amaze.filemanager.fragments.FtpServerFragment;
 import com.amaze.filemanager.fragments.MainFragment;
 import com.amaze.filemanager.fragments.preference_fragments.PreferencesConstants;
 import com.amaze.filemanager.fragments.preference_fragments.QuickAccessPref;
+import com.amaze.filemanager.smartlook.SmartlookSettingsActivity;
 import com.amaze.filemanager.ui.dialogs.GeneralDialogCreation;
 import com.amaze.filemanager.utils.BookSorter;
 import com.amaze.filemanager.utils.DataUtils;
@@ -435,6 +436,14 @@ public class Drawer implements NavigationView.OnNavigationItemSelectedListener {
         addNewItem(menu, LASTGROUP, order++, R.string.setting,
                 new MenuMetadata(() -> {
                     Intent in = new Intent(mainActivity, PreferencesActivity.class);
+                    mainActivity.startActivity(in);
+                    mainActivity.finish();
+                }),
+                R.drawable.ic_settings_white_24dp, null);
+
+        addNewItem(menu, LASTGROUP, order++, R.string.smartlook_settings,
+                new MenuMetadata(() -> {
+                    Intent in = new Intent(mainActivity, SmartlookSettingsActivity.class);
                     mainActivity.startActivity(in);
                     mainActivity.finish();
                 }),

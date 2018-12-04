@@ -43,10 +43,13 @@ import com.amaze.filemanager.utils.provider.UtilitiesProvider;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
 import com.smartlook.sdk.smartlook.Smartlook;
 import com.smartlook.sdk.smartlook.api.client.Server;
 
 import java.lang.ref.WeakReference;
+
+import io.fabric.sdk.android.Fabric;
 
 public class AppConfig extends GlideApplication {
 
@@ -72,6 +75,7 @@ public class AppConfig extends GlideApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);//selector in srcCompat isn't supported without this
         sBackgroundHandlerThread = new HandlerThread("app_background");
         mInstance = this;
